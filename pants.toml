@@ -1,0 +1,17 @@
+[GLOBAL]
+pants_version = "2.23.0"
+
+# https://www.pantsbuild.org/stable/docs/using-pants/key-concepts/backends
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.build_files.fmt.ruff",
+  "pants.backend.python.typecheck.mypy"
+]
+
+[python]
+interpreter_constraints = ["==3.12.*"]
+
+[source]
+root_patterns = [
+  'services/*',
+]
