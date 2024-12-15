@@ -38,6 +38,10 @@ jobs:
         # See https://www.pantsbuild.org/stable/docs/using-pants/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
 
+    - name: Run Pants lint and type check
+      run: |
+        pants lint check :: 2>&1 | tee lint_output.txt
+
     - name: Check BUILD files
       run: |
         pants tailor --check update-build-files --check ::
